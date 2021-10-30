@@ -1,9 +1,12 @@
 import dao.UsersEntityDAOImpl;
-import org.postgresql.util.PSQLException;
 import services.UserEntityServiceImpl;
 
+import java.sql.SQLException;
+
 public class Main {
-    public static void main(final String[] args) throws PSQLException {
-        new HibernateApplication(new UserEntityServiceImpl(new UsersEntityDAOImpl())).run();
+    public static void main(final String[] args) throws SQLException {
+        var application = new HibernateApplication(new UserEntityServiceImpl(new UsersEntityDAOImpl()));
+        application.clearDB();
+        application.run();
     }
 }
