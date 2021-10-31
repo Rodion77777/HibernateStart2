@@ -49,6 +49,14 @@ public class UsersEntityDAOImpl implements UsersEntityDAO
 
     @Override
     public List<UsersEntity> findAll() {
-        return (List<UsersEntity>) HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From UsersEntity").list();
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        List<UsersEntity> list = session.createQuery("From UsersEntity").list();
+        session.close();
+        return list;
+    }
+
+    public List<UsersEntity> findAll2 (){
+        // not closing the session, generates an error
+        return HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From UsersEntity").list();
     }
 }
