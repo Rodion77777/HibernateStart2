@@ -43,4 +43,8 @@ public class UserEntityServiceImpl implements UserEntityService {
     public AutosEntity findAutoById (int id) {
         return usersEntityDAO.findAutoById(id);
     }
+
+    public void dropUsersEntity() {
+        usersEntityDAO.dropUsersEntity();
+    }
 }
