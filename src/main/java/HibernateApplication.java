@@ -2,7 +2,6 @@ import models.AutosEntity;
 import models.UsersEntity;
 import services.UserEntityServiceImpl;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import static java.lang.System.out;
@@ -14,7 +13,7 @@ public class HibernateApplication {
         this.userEntityService = userEntityService;
     }
 
-    public void run () throws SQLException
+    public void run ()
     {
         createUserAndCarsRodion();
         createUserAndCarsDmitry();
@@ -73,7 +72,8 @@ public class HibernateApplication {
     public void showCarsFromDB ()
     {}
 
-    public void clearDB () {
+    public void clearDB ()
+    {
         out.println("Start clear UsersEntity table from Database.");
         userEntityService.dropUsersEntity();
     }

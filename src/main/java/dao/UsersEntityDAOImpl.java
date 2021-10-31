@@ -55,12 +55,6 @@ public class UsersEntityDAOImpl implements UsersEntityDAO
         return list;
     }
 
-    // TODO: edit or delete
-    public List<UsersEntity> findAll2 (){
-        // not closing the session, generates an error
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From UsersEntity").list();
-    }
-
     public void dropUsersEntity()
     {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
