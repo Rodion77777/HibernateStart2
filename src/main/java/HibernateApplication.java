@@ -1,16 +1,22 @@
+import dao.AutosEntityDAOImpl;
+import dao.UsersEntityDAOImpl;
 import models.AutosEntity;
 import models.UsersEntity;
+import services.AutosEntityServiceImpl;
 import services.UserEntityServiceImpl;
 
 import java.util.List;
 
 import static java.lang.System.out;
 
-public class HibernateApplication {
-    private UserEntityServiceImpl userEntityService;
+public class HibernateApplication
+{
+    private final UserEntityServiceImpl userEntityService;
+    private final AutosEntityServiceImpl autosEntityService;
 
-    public HibernateApplication (UserEntityServiceImpl userEntityService) {
-        this.userEntityService = userEntityService;
+    public HibernateApplication () {
+        this.userEntityService = new UserEntityServiceImpl(new UsersEntityDAOImpl());
+        this.autosEntityService = new AutosEntityServiceImpl(new AutosEntityDAOImpl());
     }
 
     public void run ()
