@@ -7,8 +7,8 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "users", schema = "public", catalog = "JRExample")
-public class UsersEntity {
-
+public class UsersEntity
+{
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
