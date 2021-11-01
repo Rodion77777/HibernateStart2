@@ -138,7 +138,7 @@ public class HibernateApplication
 
     public void clearDB ()
     {
-        out.println("Start clear UsersEntity table from Database.");
+        out.println("Start clear users table from Database.");
         userEntityService.dropUsersEntity();
     }
 }

@@ -9,7 +9,7 @@
         <property name="connection.username">postgres</property>
         <property name="connection.password">25810*</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
-        <property name="show_sql">true</property>
+        <property name="show_sql">false</property>
         <mapping resource="AutoEntity.hbm.xml"/>
         <mapping class="models.AutoEntity"/>
         <mapping class="models.UserEntity"/>
