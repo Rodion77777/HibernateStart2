@@ -1,6 +1,7 @@
 package dao;
 
 import models.AutosEntity;
+import models.UsersEntity;
 import org.hibernate.Session;
 import utils.HibernateSessionFactoryUtil;
 
@@ -17,10 +18,9 @@ public class AutosEntityDAOImpl implements AutosEntityDAO
     }
 
     @Override
-    public List<AutosEntity> findAutoByUserID(int userId) {
+    public List<AutosEntity> findAutoByUserEntity(UsersEntity usersEntity) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        List<AutosEntity> autosEntityList = session.createQuery("From AutosEntity where 'user_id' = :userId")
-                .setParameter("userId", userId).list();
+        List<AutosEntity> autosEntityList = session.createQuery("from AutosEntity where usersEntity = :userId").setParameter("userId", usersEntity).getResultList();
         session.close();
         return autosEntityList;
     }

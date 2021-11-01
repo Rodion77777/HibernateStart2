@@ -2,6 +2,7 @@ package services;
 
 import dao.AutosEntityDAO;
 import models.AutosEntity;
+import models.UsersEntity;
 
 import java.util.List;
 
@@ -19,8 +20,8 @@ public class AutosEntityServiceImpl implements AutosEntityService
     }
 
     @Override
-    public List<AutosEntity> findAutoByUserID(int userId) {
-        return autosEntityDAO.findAutoByUserID(userId);
+    public List<AutosEntity> findAutoByUserEntity(UsersEntity usersEntity) {
+        return autosEntityDAO.findAutoByUserEntity(usersEntity);
     }
 
     @Override
