@@ -1,6 +1,5 @@
 package services;
 
-import models.AutosEntity;
 import models.UsersEntity;
 
 import java.util.List;
@@ -12,5 +11,4 @@ public interface UserEntityService
     void deleteUser (UsersEntity usersEntity);
     void updateUser (UsersEntity usersEntity);
     List<UsersEntity> findAllUsers ();
-    AutosEntity findAutoById (int id);
 }

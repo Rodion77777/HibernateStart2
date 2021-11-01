@@ -1,7 +1,6 @@
 package services;
 
 import dao.UsersEntityDAOImpl;
-import models.AutosEntity;
 import models.UsersEntity;
 
 import java.util.List;
@@ -37,11 +36,6 @@ public class UserEntityServiceImpl implements UserEntityService {
     @Override
     public List<UsersEntity> findAllUsers () {
         return usersEntityDAO.findAll();
-    }
-
-    @Override
-    public AutosEntity findAutoById (int id) {
-        return usersEntityDAO.findAutoById(id);
     }
 
     public void dropUsersEntity() {

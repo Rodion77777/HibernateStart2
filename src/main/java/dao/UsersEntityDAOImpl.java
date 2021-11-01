@@ -1,6 +1,5 @@
 package dao;
 
-import models.AutosEntity;
 import models.UsersEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -16,7 +15,8 @@ public class UsersEntityDAOImpl implements UsersEntityDAO
     }
 
     @Override
-    public void save(UsersEntity usersEntity) {
+    public void save(UsersEntity usersEntity)
+    {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         session.save(usersEntity);
@@ -25,7 +25,8 @@ public class UsersEntityDAOImpl implements UsersEntityDAO
     }
 
     @Override
-    public void update(UsersEntity usersEntity) {
+    public void update(UsersEntity usersEntity)
+    {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         session.update(usersEntity);
@@ -34,7 +35,8 @@ public class UsersEntityDAOImpl implements UsersEntityDAO
     }
 
     @Override
-    public void delete(UsersEntity usersEntity) {
+    public void delete(UsersEntity usersEntity)
+    {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         session.delete(usersEntity);
@@ -43,12 +45,8 @@ public class UsersEntityDAOImpl implements UsersEntityDAO
     }
 
     @Override
-    public AutosEntity findAutoById(int id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(AutosEntity.class, id);
-    }
-
-    @Override
-    public List<UsersEntity> findAll() {
+    public List<UsersEntity> findAll()
+    {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         List<UsersEntity> list = session.createQuery("From UsersEntity").list();
         session.close();
