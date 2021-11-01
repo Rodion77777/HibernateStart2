@@ -1,40 +1,40 @@
 package services;
 
-import dao.UsersEntityDAOImpl;
-import models.UsersEntity;
+import dao.UserEntityDAOImpl;
+import models.UserEntity;
 
 import java.util.List;
 
 public class UserEntityServiceImpl implements UserEntityService {
 
-    private UsersEntityDAOImpl usersEntityDAO;
+    private UserEntityDAOImpl usersEntityDAO;
 
-    public UserEntityServiceImpl(UsersEntityDAOImpl usersEntityDAO) {
+    public UserEntityServiceImpl(UserEntityDAOImpl usersEntityDAO) {
         this.usersEntityDAO = usersEntityDAO;
     }
 
     @Override
-    public UsersEntity findUser (int id) {
+    public UserEntity findUser (int id) {
         return usersEntityDAO.findById(id);
     }
 
     @Override
-    public void saveUser (UsersEntity usersEntity) {
-        usersEntityDAO.save(usersEntity);
+    public void saveUser (UserEntity userEntity) {
+        usersEntityDAO.save(userEntity);
     }
 
     @Override
-    public void deleteUser (UsersEntity usersEntity) {
-        usersEntityDAO.delete(usersEntity);
+    public void deleteUser (UserEntity userEntity) {
+        usersEntityDAO.delete(userEntity);
     }
 
     @Override
-    public void updateUser (UsersEntity usersEntity) {
-        usersEntityDAO.update(usersEntity);
+    public void updateUser (UserEntity userEntity) {
+        usersEntityDAO.update(userEntity);
     }
 
     @Override
-    public List<UsersEntity> findAllUsers () {
+    public List<UserEntity> findAllUsers () {
         return usersEntityDAO.findAll();
     }
 

@@ -10,10 +10,10 @@
         <property name="connection.password">25810*</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
         <property name="show_sql">true</property>
-        <mapping resource="AutosEntity.hbm.xml"/>
-        <mapping class="models.AutosEntity"/>
-        <mapping class="models.UsersEntity"/>
-        <mapping resource="UsersEntity.hbm.xml"/>
+        <mapping resource="AutoEntity.hbm.xml"/>
+        <mapping class="models.AutoEntity"/>
+        <mapping class="models.UserEntity"/>
+        <mapping resource="UserEntity.hbm.xml"/>
 
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->

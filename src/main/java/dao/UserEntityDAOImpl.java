@@ -1,54 +1,54 @@
 package dao;
 
-import models.UsersEntity;
+import models.UserEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateSessionFactoryUtil;
 
 import java.util.List;
 
-public class UsersEntityDAOImpl implements UsersEntityDAO
+public class UserEntityDAOImpl implements UserEntityDAO
 {
     @Override
-    public UsersEntity findById(int id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(UsersEntity.class, id);
+    public UserEntity findById(int id) {
+        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(UserEntity.class, id);
     }
 
     @Override
-    public void save(UsersEntity usersEntity)
+    public void save(UserEntity userEntity)
     {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        session.save(usersEntity);
+        session.save(userEntity);
         transaction.commit();
         session.close();
     }
 
     @Override
-    public void update(UsersEntity usersEntity)
+    public void update(UserEntity userEntity)
     {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        session.update(usersEntity);
+        session.update(userEntity);
         transaction.commit();
         session.close();
     }
 
     @Override
-    public void delete(UsersEntity usersEntity)
+    public void delete(UserEntity userEntity)
     {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(usersEntity);
+        session.delete(userEntity);
         transaction.commit();
         session.close();
     }
 
     @Override
-    public List<UsersEntity> findAll()
+    public List<UserEntity> findAll()
     {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        List<UsersEntity> list = session.createQuery("From UsersEntity").list();
+        List<UserEntity> list = session.createQuery("From UserEntity").list();
         session.close();
         return list;
     }
@@ -57,7 +57,7 @@ public class UsersEntityDAOImpl implements UsersEntityDAO
     {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        session.createQuery("delete UsersEntity").executeUpdate();
+        session.createQuery("delete UserEntity").executeUpdate();
         transaction.commit();
         session.close();
     }

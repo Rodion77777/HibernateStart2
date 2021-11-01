@@ -7,7 +7,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "users", schema = "public", catalog = "JRExample")
-public class UsersEntity
+public class UserEntity
 {
     @Id
     @Column(name = "id", nullable = false)
@@ -22,12 +22,12 @@ public class UsersEntity
     @Column(name = "age", nullable = false)
     private int age;
 
-    @OneToMany(mappedBy = "usersEntity", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<AutosEntity> autos;
+    @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<AutoEntity> autos;
 
-    public UsersEntity () {}
+    public UserEntity() {}
 
-    public UsersEntity (String name, int age)
+    public UserEntity(String name, int age)
     {
         this.name = name;
         this.age = age;
@@ -58,25 +58,25 @@ public class UsersEntity
         this.age = age;
     }
 
-    public List<AutosEntity> getAutos ()
+    public List<AutoEntity> getAutos ()
     {
         return this.autos;
     }
 
-    public void setAutos (List<AutosEntity> autos)
+    public void setAutos (List<AutoEntity> autos)
     {
         this.autos = autos;
     }
 
-    public void addAuto (AutosEntity autosEntity)
+    public void addAuto (AutoEntity autoEntity)
     {
-        autosEntity.setUsersEntity(this);
-        autos.add(autosEntity);
+        autoEntity.setUsersEntity(this);
+        autos.add(autoEntity);
     }
 
-    public void removeAuto (AutosEntity autosEntity)
+    public void removeAuto (AutoEntity autoEntity)
     {
-        autos.remove(autosEntity);
+        autos.remove(autoEntity);
     }
 
     @Override
@@ -84,7 +84,7 @@ public class UsersEntity
     {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UsersEntity that = (UsersEntity) o;
+        UserEntity that = (UserEntity) o;
         return id == that.id && age == that.age && Objects.equals(name, that.name);
     }
 

@@ -1,14 +1,14 @@
 package services;
 
-import models.UsersEntity;
+import models.UserEntity;
 
 import java.util.List;
 
 public interface UserEntityService
 {
-    UsersEntity findUser (int id);
-    void saveUser (UsersEntity usersEntity);
-    void deleteUser (UsersEntity usersEntity);
-    void updateUser (UsersEntity usersEntity);
-    List<UsersEntity> findAllUsers ();
+    UserEntity findUser (int id);
+    void saveUser (UserEntity userEntity);
+    void deleteUser (UserEntity userEntity);
+    void updateUser (UserEntity userEntity);
+    List<UserEntity> findAllUsers ();
 }

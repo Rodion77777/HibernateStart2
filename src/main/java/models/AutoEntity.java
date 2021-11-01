@@ -5,7 +5,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "autos", schema = "public", catalog = "JRExample")
-public class AutosEntity
+public class AutoEntity
 {
     @Id
     @Column(name = "id", nullable = false)
@@ -22,11 +22,11 @@ public class AutosEntity
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private UsersEntity usersEntity;
+    private UserEntity userEntity;
 
-    public AutosEntity () {}
+    public AutoEntity() {}
 
-    public AutosEntity (String model, String color)
+    public AutoEntity(String model, String color)
     {
         this.model = model;
         this.color = color;
@@ -56,14 +56,14 @@ public class AutosEntity
         this.color = color;
     }
 
-    public UsersEntity getUsersEntity ()
+    public UserEntity getUsersEntity ()
     {
-        return usersEntity;
+        return userEntity;
     }
 
-    public void setUsersEntity (UsersEntity usersEntity)
+    public void setUsersEntity (UserEntity userEntity)
     {
-        this.usersEntity = usersEntity;
+        this.userEntity = userEntity;
     }
 
     @Override
@@ -71,7 +71,7 @@ public class AutosEntity
     {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AutosEntity that = (AutosEntity) o;
+        AutoEntity that = (AutoEntity) o;
         return id == that.id && Objects.equals(model, that.model) && Objects.equals(color, that.color);
     }
 

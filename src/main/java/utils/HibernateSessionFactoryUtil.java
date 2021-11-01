@@ -1,7 +1,7 @@
 package utils;
 
-import models.AutosEntity;
-import models.UsersEntity;
+import models.AutoEntity;
+import models.UserEntity;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -18,8 +18,8 @@ public class HibernateSessionFactoryUtil
         {
             try {
                 Configuration configuration = new Configuration().configure();
-                configuration.addAnnotatedClass(UsersEntity.class);
-                configuration.addAnnotatedClass(AutosEntity.class);
+                configuration.addAnnotatedClass(UserEntity.class);
+                configuration.addAnnotatedClass(AutoEntity.class);
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(builder.build());
             } catch (Exception e) {
